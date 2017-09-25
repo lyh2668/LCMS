@@ -5,8 +5,7 @@
       border
       tooltip-effect="dark"
       :style="style"
-      ref="table"
-      align="right">
+      ref="table">
       <el-table-column
         type="selection"
         width="50"
@@ -14,10 +13,11 @@
       </el-table-column>
       <el-table-column
         v-for="item in tableFields"
+        :key="item.prop"
         :prop="item.prop"
         :label="item.label"
         :width="item.width || ''"
-        v-if="item.isShow"
+        v-if="!item.noShow"
         show-overflow-tooltip>
       </el-table-column>
       <el-table-column
@@ -137,7 +137,12 @@ export default {
     if ((!this.fields || this.fields.length === 0) ||
       (!this.list || this.list.length === 0)) {
       await this.$store.dispatch('getTableList', { type: this.name })
-      await this.$store.dispatch('getTableFields', { type: this.name })
+
+      let keys = []
+      if (this.tableList.length > 0) {
+        keys = Object.keys(this.tableList[0])
+      }
+      this.$store.dispatch('getTableFields', keys)
     } else {
       this.tableFields = this.fields
       this.tableList = this.list

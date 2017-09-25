@@ -15,6 +15,7 @@
     "element-ui": "^1.4.4",
     "js-cookie": "^2.1.4",
     "lodash": "^4.17.4",
+    "tinymce": "^4.6.7",
     "validator": "^8.2.0",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",

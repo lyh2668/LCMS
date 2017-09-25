@@ -1,4 +1,5 @@
 import request from '../../api/requests.js'
+import fields from '@/utils/fields'
 
 const state = () => ({
   tableList: [],
@@ -35,9 +36,9 @@ const actions = {
     commit('SET_TABLE_LIST', data.list)
     commit('SET_TABLE_TOTAL', data.total)
   },
-  getTableFields: async ({ commit }, params) => {
-    const fields = await request.getFields(params)
-    commit('SET_TABLE_FIELDS', fields)
+  getTableFields: ({ commit }, keys) => {
+    let value = fields.createFields(keys)
+    commit('SET_TABLE_FIELDS', value)
   },
   setTableList: ({ commit }, value) => {
     commit('SET_TABLE_LIST', value)

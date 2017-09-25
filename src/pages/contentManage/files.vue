@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="cm-files">
-    这是文件页面
+    <div v-for="i in 1000">这是文件页面</div>
   </div>
 </template>
 
@@ -12,7 +12,6 @@ export default {
 
 <style lang="scss" scoped>
 .cm-files {
-  width: 100%;
   background: red;
   margin: 20px;
 }

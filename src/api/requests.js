@@ -8,53 +8,53 @@ export default {
       list: [
         {
           id: 1,
-          title: '这是文章标题',
+          title: '这是一个比较长的文章标题',
           description: '这是描述',
           updateTime: '2017-09-09',
           category: '国家',
-          hits: '点击数'
+          hits: '123'
         }, {
           id: 2,
           title: '这是文章标题',
           description: '这是描述',
           updateTime: '2017-09-09',
           category: '国家',
-          hits: '点击数'
+          hits: '234'
         }, {
           id: 3,
           title: '这是文章标题',
           description: '这是描述',
           updateTime: '2017-09-09',
           category: '国家',
-          hits: '点击数'
+          hits: '222'
         }, {
           id: 4,
           title: '这是文章标题',
           description: '这是描述',
           updateTime: '2017-09-09',
           category: '国家',
-          hits: '点击数'
+          hits: '3333'
         }, {
           id: 5,
           title: '这是文章标题',
           description: '这是描述',
           updateTime: '2017-09-09',
           category: '国家',
-          hits: '点击数'
+          hits: '432'
         }, {
           id: 6,
           title: '这是文章标题',
           description: '这是描述',
           updateTime: '2017-09-09',
           category: '国家',
-          hits: '点击数'
+          hits: '543'
         }, {
           id: 7,
           title: '这是文章标题',
           description: '这是描述',
           updateTime: '2017-09-09',
           category: '国家',
-          hits: '点击数'
+          hits: '555'
         }
       ]
     }
@@ -64,7 +64,17 @@ export default {
     return api.jsonRequest('article/detail', params, 'get')
   },
   getFormDatas: (params) => {
-    return {}
+    return {
+      datas: {
+        title: '',
+        description: '',
+        category: '',
+        important: '',
+        content: '',
+        avatar: {},
+        pictures: [],
+        attachment: []
+      } }
   },
   // 获取表格的字段映射
   getFields: (params) => {

@@ -32,40 +32,15 @@
 
 <script type="text/ecmascript-6">
 import { mapGetters } from 'vuex'
-import validatorUtil from '@/utils/valid'
+// import validatorUtil from '@/utils/valid'
+import rules from '@/utils/rules'
 export default {
   name: 'Signin',
   data () {
     return {
       rules: {
-        username: [{
-          required: true,
-          message: '请输入用户名',
-          trigger: 'blur'
-        }, {
-          validator: (rule, value, callback) => {
-            if (!validatorUtil.checkUsername(value)) {
-              callback(new Error('请正确输入用户名，6-16位且首字母必须为字母！'))
-            } else {
-              callback()
-            }
-          },
-          trigger: 'blur'
-        }],
-        password: [{
-          required: true,
-          message: '请输入密码',
-          trigger: 'blur'
-        }, {
-          validator: (rule, value, callback) => {
-            if (!validatorUtil.checkPwd(value)) {
-              callback(new Error('请正确输入密码，6-12位且必须包含字母和数字!'))
-            } else {
-              callback()
-            }
-          },
-          trigger: 'blur'
-        }]
+        username: rules.username,
+        password: rules.password
       }
 
     }

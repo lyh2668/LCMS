@@ -16,10 +16,16 @@
 
 <script type="text/ecmascript-6">
 import LTable from 'components/tables'
+import { mapGetters } from 'vuex'
 export default {
   name: 'CMArticles',
   components: {
     LTable
+  },
+  computed: {
+    ...mapGetters([
+      'tableDatas'
+    ])
   },
   data () {
     return {
@@ -33,6 +39,9 @@ export default {
     handleOperate (type, val) {
       console.log('type: ', type, 'val: ', val)
     }
+  },
+  created () {
+
   }
 }
 </script>

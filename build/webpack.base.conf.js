@@ -28,6 +28,9 @@ module.exports = {
       'common': resolve('src/common')
     }
   },
+  externals: {
+    'UE': 'UE'
+  },
   module: {
     rules: [
       {

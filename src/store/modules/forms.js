@@ -1,8 +1,9 @@
 import request from '../../api/requests.js'
+import fields from '@/utils/fields'
 
 const state = () => ({
   formFields: [],
-  formDatas: []
+  formDatas: {}
 })
 
 const getters = {
@@ -16,6 +17,13 @@ const mutations = {
   },
   SET_FORM_DATAS: (state, datas) => {
     state.formDatas = datas
+  },
+  RESET_FORM_DATAS: (state) => {
+    let obj = {}
+    Object.keys(state.formDatas).forEach((key) => {
+      obj[key] = null
+    })
+    state.formDatas = obj
   }
 }
 
@@ -24,15 +32,18 @@ const actions = {
     const data = await request.getFormDatas(params)
     commit('SET_FORM_DATAS', data.datas)
   },
-  getFormFields: async ({ commit }, params) => {
-    const fields = await request.getFields(params)
-    commit('SET_FORM_FIELDS', fields)
+  getFormFields: ({ commit }, keys) => {
+    let value = fields.createFields(keys)
+    commit('SET_FORM_FIELDS', value)
   },
   setFormDatas: ({ commit }, value) => {
     commit('SET_FORM_DATAS', value)
   },
   setFormFields: ({ commit }, value) => {
     commit('SET_FORM_FIELDS', value)
+  },
+  resetForm: ({ commit }) => {
+    commit('RESET_FORM_DATAS')
   }
 }
 

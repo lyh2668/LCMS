@@ -29,6 +29,10 @@ export default {
 
 <style lang="scss" scoped>
 .l-main-container {
-  margin: 10px 30px;
+  // position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px 30px;
+  overflow-y: scroll;
 }
 </style>
