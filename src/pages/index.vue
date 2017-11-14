@@ -57,6 +57,7 @@ export default {
 .index-container {
   position: absolute;
   width: 100%;
+  min-width: 1000px;
   height: 100%;
   display: flex;
   overflow: hidden;

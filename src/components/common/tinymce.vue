@@ -7,11 +7,6 @@
 
 export default {
   name: 'LTinymce',
-  data () {
-    return {
-      spinShow: true
-    }
-  },
   methods: {
     init () {
       this.$nextTick(() => {
@@ -41,7 +36,6 @@ export default {
           },
           setup: function (editor) {
             editor.on('init', function (e) {
-              vm.spinShow = false
               if (localStorage.editorContent) {
                 tinymce.get('tinymceEditer').setContent(localStorage.editorContent)
               }
