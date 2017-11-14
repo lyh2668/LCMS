@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
+// import 'element-ui/lib/theme-default/index.css'
 import 'common/style/base.scss'
 // import tinymce from 'tinymce'
 // console.log('tinymce: ', tinymce)

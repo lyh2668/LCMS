@@ -88,12 +88,12 @@ export default {
       validator: function (value) {
         let validArr = ['view', 'edit', 'delete']
         let flag = true
-        Array.forEach(value, (item, index) => {
-          if (validArr.indexOf(item) === -1) {
+        for (let i = 0; i < value.length; ++i) {
+          if (validArr.indexOf(value[i]) < 0) {
             flag = false
-            return
+            break
           }
-        })
+        }
         return flag
       }
     }

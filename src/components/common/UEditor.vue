@@ -7,9 +7,9 @@
 </template>
 
 <script type="text/ecmascript-6">
-import '../../../static/ueditor/ueditor.config'
-import '../../../static/ueditor/ueditor.all.min'
-import '../../../static/ueditor/lang/zh-cn/zh-cn'
+// import '../../../static/ueditor/ueditor.config'
+// import '../../../static/ueditor/ueditor.all.min'
+// import '../../../static/ueditor/lang/zh-cn/zh-cn'
 
 // import UE from 'UE'
 export default {

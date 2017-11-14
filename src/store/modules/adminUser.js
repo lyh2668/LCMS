@@ -1,13 +1,13 @@
 // import api from '@/api'
 
-import cookies from '@/utils/cookies'
+// import cookies from '@/utils/cookies'
 
 const state = () => ({
   loginForm: {
     username: '',
     password: ''
   },
-  token: cookies.getToken(),
+  token: null,
   roles: []
 })
 
@@ -21,9 +21,9 @@ const mutations = {
   SET_TOKEN: (state, token) => {
     // token应该在登录成功以后被设置，这里只是模拟一下
     if (token) {
-      cookies.setToken(token)
+      // cookies.setToken(token)
     } else {
-      cookies.removeToken()
+      // cookies.removeToken()
     }
     state.token = token
   },
