@@ -50,11 +50,8 @@
           <img v-if="formDatas[item.prop].url" :src="formDatas[item.prop].url" class="avatar">
           <i v-else class="el-icon-plus avatar-icon"></i>
         </el-upload>
-        <l-ueditor
-          v-if="isType(item, 'richText')"
-          :content="formDatas[item.prop]"></l-ueditor>
-        <!-- <l-tinymce
-          v-if="isType(item, 'richText')"></l-tinymce> -->
+        <l-tinymce
+          v-if="isType(item, 'richText')"></l-tinymce>
       </el-form-item>
     </el-form>
   </div>
@@ -63,12 +60,12 @@
 <script type="text/ecmascript-6">
 import { mapGetters } from 'vuex'
 import rulesUtil from '@/utils/rules'
-import LUeditor from 'components/common/UEditor'
+import LTinymce from 'components/common/tinymce'
 
 export default {
   name: 'LForms',
   components: {
-    LUeditor
+    LTinymce
   },
   props: {
     name: {

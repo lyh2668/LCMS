@@ -5,7 +5,8 @@
       border
       tooltip-effect="dark"
       :style="style"
-      ref="table">
+      ref="table"
+      class="table">
       <el-table-column
         type="selection"
         width="50"
@@ -25,20 +26,22 @@
         fixed="right"
         :width="operateCellWidth">
         <template scope="scope">
-          <el-button
-            size="small"
-            type="primary"
-            @click="handleOperate('view', scope.$index, scope.row)"
-            v-if="(operateType >> 2 & 1) || validTypes('view')">查看</el-button>
-          <el-button
-            size="small"
-            @click="handleOperate('edit', scope.$index, scope.row)"
-            v-if="operateType >> 1 & 1 || validTypes('edit')">编辑</el-button>
-          <el-button
-            size="small"
-            type="danger"
-            @click="handleOperate('delete', scope.$index, scope.row)"
-            v-if="operateType & 1 || validTypes('delete')">删除</el-button>
+          <div class="operate-cell">
+            <el-button
+              size="small"
+              type="primary"
+              @click="handleOperate('view', scope.$index, scope.row)"
+              v-if="(operateType >> 2 & 1) || validTypes('view')">查看</el-button>
+            <el-button
+              size="small"
+              @click="handleOperate('edit', scope.$index, scope.row)"
+              v-if="operateType >> 1 & 1 || validTypes('edit')">编辑</el-button>
+            <el-button
+              size="small"
+              type="danger"
+              @click="handleOperate('delete', scope.$index, scope.row)"
+              v-if="operateType & 1 || validTypes('delete')">删除</el-button>
+          </div>
         </template>
       </el-table-column>
     </el-table>
@@ -130,7 +133,7 @@ export default {
           // console.log(`op: ${op}, cnt: ${cnt}`)
         }
       }
-      return cnt * 70
+      return cnt * 75
     }
   },
   async created () {
@@ -179,12 +182,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .l-table-container {
   // position: absolute;
   max-width: 100%;
   .table {
-
+    .operate-cell {
+      display: flex;
+      justify-content: space-between;
+    }
   }
   .pagination {
     margin-top: 20px;
