@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="index-container">
     <div class="left-container">
-      <l-brand title="政策树后台" :img-src="logo" :collapse="isCollapse"></l-brand>
+      <l-brand title="LCMS" icon="icon-nav-logo" :collapse="isCollapse" @click.native="toHome" class="brand"></l-brand>
       <l-menu
         class="side-menu"
         :menus="routes"
@@ -45,9 +45,12 @@ export default {
     }
   },
   methods: {
-    onCollapse: function (isCollapse) {
+    onCollapse (isCollapse) {
       this.isCollapse = isCollapse
       this.$store.dispatch('tableResize', isCollapse)
+    },
+    toHome () {
+      this.$router.push({ path: '/' })
     }
   }
 }
@@ -65,6 +68,7 @@ export default {
     .brand {
       height: 60px;
       line-height: 60px;
+      cursor: pointer;
     }
     .side-menu {
       height: 100%;

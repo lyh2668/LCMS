@@ -25,7 +25,7 @@
         label="操作"
         fixed="right"
         :width="operateCellWidth">
-        <template scope="scope">
+        <template slot-scope="scope">
           <div class="operate-cell">
             <el-button
               size="small"

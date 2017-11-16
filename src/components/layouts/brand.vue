@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="l-brand">
-    <img :src="imgSrc" alt="" class="brand-img">
+    <!-- <img :src="imgSrc" alt="" class="brand-img"> -->
+    <i :class="['iconfont', 'brand-icon', icon]"></i>
     <span class="brand-title" :class="titleCls">{{ title }}</span>
   </div>
 </template>
@@ -9,7 +10,7 @@
 export default {
   name: 'LBrand',
   props: {
-    imgSrc: {
+    icon: {
       type: String
     },
     title: {
@@ -46,11 +47,13 @@ export default {
   line-height: 60px;
   display: flex;
   background: $header-color;
-  .brand-img {
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    margin-left: 12px;
+  color: white;
+  .brand-icon {
+    &::before {
+      font-size: 32px;
+      margin: 10px;
+      color: inherit;
+    }
   }
   .brand-title {
     // margin-left: 60px;

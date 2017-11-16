@@ -7,14 +7,19 @@
 
 export default {
   name: 'LTinymce',
+  data () {
+    return {
+      /* global tinymce */
+      tinymce: tinymce
+    }
+  },
   methods: {
     init () {
       this.$nextTick(() => {
-        let vm = this
         // let height = window.document.body.offsetHeight - 300
         let height = 400
         console.log(height)
-        tinymce.init({
+        this.tinymce.init({
           selector: '#tinymceEditer',
           branding: false,
           elementpath: false,
@@ -37,11 +42,11 @@ export default {
           setup: function (editor) {
             editor.on('init', function (e) {
               if (localStorage.editorContent) {
-                tinymce.get('tinymceEditer').setContent(localStorage.editorContent)
+                this.tinymce.get('tinymceEditer').setContent(localStorage.editorContent)
               }
             })
             editor.on('keydown', function (e) {
-              localStorage.editorContent = tinymce.get('tinymceEditer').getContent()
+              localStorage.editorContent = this.tinymce.get('tinymceEditer').getContent()
             })
           }
         })
@@ -52,7 +57,7 @@ export default {
     this.init()
   },
   destroyed () {
-    tinymce.get('tinymceEditer').destroy()
+    this.tinymce.get('tinymceEditer').destroy()
   }
 }
 </script>
